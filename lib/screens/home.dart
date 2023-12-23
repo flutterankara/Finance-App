@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/coreWidgets/reportAndMain.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: _buildFinanceBlock(
                     title: 'Toplam Borç',
                     amount:
-                        '5,000 TL', // Buraya gerçek borç miktarınızı ekleyin
+                        '56,000 TL', // Buraya gerçek borç miktarınızı ekleyin
                     color: Colors.red,
                   ),
                 ),
@@ -75,6 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
+            ReportAndMain(
+                amount: 45.00,
+                type: " TL",
+                date: DateTime(2023, 11, 11),
+                InOrOut: false),
+            ReportAndMain(
+                amount: 45.00,
+                type: " TL",
+                date: DateTime(2023, 11, 11),
+                InOrOut: true),
+
             //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             //   _buildTransactionRow(
             //     icon: Icons.arrow_upward,
