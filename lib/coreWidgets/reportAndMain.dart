@@ -31,7 +31,7 @@ class ReportAndMain extends StatelessWidget {
               width: 100,
               decoration:BoxDecoration(
                 color: InOrOut ? Colors.green.shade100:Colors.red.shade200,
-                borderRadius: BorderRadius.circular(10)
+                borderRadius: BorderRadius.circular(11)
               ),
             ),
             Expanded(
