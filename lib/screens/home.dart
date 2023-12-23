@@ -45,13 +45,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       drawer: _getDrawerMenu(),
+      bottomNavigationBar: _getBottomNavigationBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             _buildTotalBalanceBlock(
               totalBalance:
-                  '15,000 TL', // Buraya gerçek toplam hesap miktarınızı ekleyin
+                  '16,000 TL', // Buraya gerçek toplam hesap miktarınızı ekleyin
             ),
             SizedBox(height: 16.0),
             Row(
@@ -216,6 +217,22 @@ Widget _buildTransactionRow({
   );
 }
 
+Widget _getBottomNavigationBar() {
+  return BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Ana Sayfa',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.history),
+        label: 'İşlem Geçmişi',
+      ),
+      // Diğer sayfaları ekleyebilirsiniz.
+    ],
+  );
+}
+
 Widget _getDrawerMenu() {
   return Drawer(
     child: ListView(
@@ -239,6 +256,10 @@ Widget _getDrawerMenu() {
         ),
         ListTile(
           title: Text('İşlem Geçmişi'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Çıkış'),
           onTap: () {},
         ),
       ],
