@@ -44,7 +44,6 @@ class _ReportScreenState extends State<ReportScreen> {
                 ReportAndMain(InOrOut: true,amount: 500,date: DateTime(2002,12,31),type: "\$"),
                 ReportAndMain(InOrOut: true,amount: 400,date: DateTime(2002,12,31),type: "\$"),
                 ReportAndMain(InOrOut: false,amount: 100,date: DateTime(2002,12,31),type: "\$"),
-                ReportAndMain(InOrOut: true,amount: 100,date: DateTime(2002,12,31),type: "\$"),
               ],
             ),
           )
