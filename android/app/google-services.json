@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "933295251998",
+    "firebase_url": "https://finans-app-19a72-default-rtdb.firebaseio.com",
+    "project_id": "finans-app-19a72",
+    "storage_bucket": "finans-app-19a72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933295251998:android:6d6c55f8e7fc164db0440f",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8ehM34vMaC6dk8g62YdNDWJbRPBD90uI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

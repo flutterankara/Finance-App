@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/coreWidgets/reportAndMain.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,13 +45,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       drawer: _getDrawerMenu(),
+      bottomNavigationBar: _getBottomNavigationBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             _buildTotalBalanceBlock(
               totalBalance:
-                  '15,000 TL', // Buraya gerçek toplam hesap miktarınızı ekleyin
+                  '16,000 TL', // Buraya gerçek toplam hesap miktarınızı ekleyin
             ),
             SizedBox(height: 16.0),
             Row(
@@ -60,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: _buildFinanceBlock(
                     title: 'Toplam Borç',
                     amount:
-                        '5,000 TL', // Buraya gerçek borç miktarınızı ekleyin
+                        '56,000 TL', // Buraya gerçek borç miktarınızı ekleyin
                     color: Colors.red,
                   ),
                 ),
@@ -75,6 +77,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
+            ReportAndMain(
+                amount: 45.00,
+                type: " TL",
+                date: DateTime(2023, 11, 11),
+                InOrOut: false),
+            ReportAndMain(
+                amount: 45.00,
+                type: " TL",
+                date: DateTime(2023, 11, 11),
+                InOrOut: true),
+
             //Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             //   _buildTransactionRow(
             //     icon: Icons.arrow_upward,
@@ -204,6 +217,22 @@ Widget _buildTransactionRow({
   );
 }
 
+Widget _getBottomNavigationBar() {
+  return BottomNavigationBar(
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Ana Sayfa',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.history),
+        label: 'İşlem Geçmişi',
+      ),
+      // Diğer sayfaları ekleyebilirsiniz.
+    ],
+  );
+}
+
 Widget _getDrawerMenu() {
   return Drawer(
     child: ListView(
@@ -227,6 +256,10 @@ Widget _getDrawerMenu() {
         ),
         ListTile(
           title: Text('İşlem Geçmişi'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Çıkış'),
           onTap: () {},
         ),
       ],
