@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -32,6 +33,11 @@ class _LoginFormState extends State<LoginForm> {
       _isAuthenticating = true;
     });
     formKey.currentState!.save();
+
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _enteredEmail,
+      password: _enteredPassword,
+    );
 
     setState(() {
       _isAuthenticating = false;

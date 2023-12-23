@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupForm extends StatefulWidget {
@@ -14,7 +16,6 @@ class SignupForm extends StatefulWidget {
 class _SignupFormState extends State<SignupForm> {
   final formKey = GlobalKey<FormState>();
   bool _isAuthenticating = false;
-  File? _enteredImage;
   String _enteredUsername = "";
   String _enteredEmail = "";
   String _enteredPassword = "";
@@ -36,6 +37,22 @@ class _SignupFormState extends State<SignupForm> {
     });
 
     formKey.currentState!.save();
+
+    final UserCredential user =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _enteredEmail,
+      password: _enteredPassword,
+    );
+
+    final userInfo = <String, String>{
+      "username": _enteredUsername,
+      "email": _enteredEmail,
+    };
+
+    await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(user.user!.uid)
+        .set(userInfo);
 
     setState(() {
       _isAuthenticating = false;
