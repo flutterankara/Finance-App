@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      drawer: _getDrawerMenu(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -197,6 +198,36 @@ Widget _buildTransactionRow({
             fontWeight: FontWeight.bold,
             color: icon == Icons.arrow_downward ? Colors.red : Colors.green,
           ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _getDrawerMenu() {
+  return Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: Text(
+            'Menü',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+        ),
+        ListTile(
+          title: Text('Ana Sayfa'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('İşlem Geçmişi'),
+          onTap: () {},
         ),
       ],
     ),
