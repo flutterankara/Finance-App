@@ -1,4 +1,5 @@
 import 'package:app/screens/buget.dart';
+import 'package:app/screens/finance/income_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app/coreWidgets/reportAndMain.dart';
@@ -264,7 +265,13 @@ Widget _getDrawerMenu(BuildContext context) {
         ),
         ListTile(
           title: Text('Masraflar'),
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context); // Drawer'ı kapat
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => IncomeScreen()),
+            );
+          },
         ),
         ListTile(
           title: Text('Bütçe'),
