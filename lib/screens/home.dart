@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app/coreWidgets/reportAndMain.dart';
 
@@ -37,6 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -267,7 +273,9 @@ Widget _getDrawerMenu() {
         ),
         ListTile(
           title: Text('Çıkış'),
-          onTap: () {},
+          onTap: () async {
+            await FirebaseAuth.instance.signOut();
+          },
         ),
       ],
     ),

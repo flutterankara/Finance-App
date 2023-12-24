@@ -33,11 +33,14 @@ class _LoginFormState extends State<LoginForm> {
       _isAuthenticating = true;
     });
     formKey.currentState!.save();
-
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _enteredEmail,
-      password: _enteredPassword,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _enteredEmail,
+        password: _enteredPassword,
+      );
+    } on FirebaseAuthException catch (error) {
+      print("Signin Fail");
+    }
 
     setState(() {
       _isAuthenticating = false;
