@@ -36,8 +36,9 @@ class UserModel {
       name: map['name'],
       email: map['email'] ?? '',
       age: map['age']?.toInt() ?? 0,
-      incomeList: List<int>.from(map['incomeList']),
-      debtList: List<int>.from(map['debtList']),
+      incomeList:
+          map['incomeList'] != null ? List<int>.from(map['incomeList']) : [],
+      debtList: map['debtList'] != null ? List<int>.from(map['debtList']) : [],
       accounts: map['accounts'] != null
           ? List<AccountModel>.from(
               map['accounts']?.map((x) => AccountModel.fromMap(x)))

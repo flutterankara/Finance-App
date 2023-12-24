@@ -304,7 +304,7 @@ class _GiderSayfasiState extends State<GiderSayfasi> {
                                                         FontWeight.bold),
                                               ),
                                               Text(
-                                                "${mypost['tarih']}",
+                                                "${mypost['tarih'].toString()}",
                                                 style: TextStyle(
                                                     fontSize: 22,
                                                     fontWeight:
