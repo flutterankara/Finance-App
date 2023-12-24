@@ -1,3 +1,4 @@
+import 'package:app/core/app/controllers/app_controller.dart';
 import 'package:app/models/account_model.dart';
 import 'package:app/models/user_model.dart';
 import 'package:app/screens/accounts/controllers/accounts_page_controller.dart';
@@ -21,13 +22,15 @@ class AddAccountButton extends StatelessWidget {
         );
 
         if (result != null && context.mounted) {
-          context.read<AccountPageController>().addAccount(
-                model: AccountModel(title: result),
-                userModel: UserModel(
-                  name: 'Test',
-                  age: 26,
-                ),
-              );
+          final user = context.read<AppController>().user!;
+          final newUser =
+              await context.read<AccountPageController>().addAccount(
+                    model: AccountModel(title: result),
+                    userModel: user,
+                  );
+          if (context.mounted) {
+            context.read<AppController>().setUser(userModel: newUser);
+          }
         }
       },
       child: const Icon(Icons.add),
