@@ -29,8 +29,8 @@ class _IncomeScreenState extends State<IncomeScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: [
-            Tab(text: 'Gelir'),
-            Tab(text: 'Gider'),
+            Tab(text: 'Ekle'),
+            Tab(text: 'Listele'),
             Tab(text: 'Borç'),
           ],
         ),
@@ -213,7 +213,7 @@ class _GiderSayfasiState extends State<GiderSayfasi> {
                       itemCount: snaphot.data!.docs.length,
                       itemBuilder: (context, index) {
                         DocumentSnapshot mypost = snaphot.data!.docs[index];
-
+                        final year = (mypost['tarih'] as Timestamp).toDate();
                         //veri silmek için
                         Future<void> _showChoiseDialog(BuildContext context) {
                           return showDialog(
@@ -303,13 +303,15 @@ class _GiderSayfasiState extends State<GiderSayfasi> {
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
-                                              Text(
-                                                "${mypost['tarih'].toString()}",
-                                                style: TextStyle(
-                                                    fontSize: 22,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                                textAlign: TextAlign.center,
+                                              Expanded(
+                                                child: Text(
+                                                  '${year.day}.${year.month}.${year.year}',
+                                                  style: TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                  textAlign: TextAlign.center,
+                                                ),
                                               ),
                                             ]),
                                         SizedBox(height: 5),

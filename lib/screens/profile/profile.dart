@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:app/screens/home.dart';
 import 'package:app/screens/profile/editProfile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,8 +12,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  late var id;
-  late final info;
+  dynamic id = {};
+  dynamic info = {};
 
   late FirebaseFirestore firestore;
 
@@ -27,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<void> getValue() async {
-    info = await FirebaseFirestore.instance.doc("Users/" + id).get();
+    info = (await FirebaseFirestore.instance.doc("Users/" + id).get()).data();
     setState(() {});
   }
 
@@ -48,20 +46,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      HomeScreen()), // HomeScreen'e gitmek için
-            );
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -82,16 +66,18 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 15),
             Text(
-              "Welcome ${info["email"]}", // firebaseden gelecek
+              "Welcome ${info["name"]}", // firebaseden gelecek
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 20),
-            _buildProfileInfo(Icons.person, 'Name', info["email"]),
+            _buildProfileInfo(Icons.person, 'Name',
+                info['email'] != null ? info["email"] : ''),
             // _buildProfileInfo(Icons.person, 'Surname', info["username"]),
-            _buildProfileInfo(Icons.email, 'E-mail', info["username"]),
+            _buildProfileInfo(Icons.email, 'E-mail',
+                info['username'] != null ? info["username"] : ''),
             _buildProfileAction(Icons.lock, 'Change Password', _changePassword),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
