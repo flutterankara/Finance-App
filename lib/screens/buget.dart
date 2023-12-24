@@ -10,10 +10,10 @@ class Budget extends StatefulWidget {
 }
 
 List _elements = [
-  {'name': 'gelir', 'group': 'Gelir'},
-  {'name': 'gelir', 'group': 'Gelir'},
-  {'name': 'gider', 'group': 'Gider'},
-  {'name': 'gider', 'group': 'Gider'},
+  {'name': 'income', 'group': 'Income'},
+  {'name': 'income', 'group': 'Income'},
+  {'name': 'expense', 'group': 'Expense'},
+  {'name': 'expense', 'group': 'Expense'},
 ];
 
 class _Budget extends State<Budget> {
@@ -23,7 +23,7 @@ class _Budget extends State<Budget> {
         appBar: AppBar(
           toolbarHeight: 200, // Set this height
           flexibleSpace: Container(
-            color: Colors.blue,
+            color: Colors.deepPurple,
             child: const Column(
               children: [
                 SizedBox(
@@ -34,7 +34,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Budget",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -46,7 +47,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Left Budget",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -55,7 +57,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Para",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -89,7 +92,7 @@ class _Budget extends State<Budget> {
 }
 
 Column test(String element) {
-  if (element == "gelir") {
+  if (element == "income") {
     return Column(
       children: [
         ReportAndMain(

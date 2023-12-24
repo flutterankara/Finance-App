@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:app/core/app/controllers/app_controller.dart';
 import 'package:app/screens/accounts/controllers/accounts_page_controller.dart';
 import 'package:app/screens/accounts/widgets/account_dashboard_card.dart';
 import 'package:app/screens/accounts/widgets/add_account_button.dart';
@@ -12,7 +13,9 @@ class AccountsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => AccountPageController(),
+        create: (context) => AccountPageController(
+              accounts: context.read<AppController>().user!.accounts,
+            ),
         builder: (context, _) {
           return Builder(builder: (context) {
             final controller = context.watch<AccountPageController>();
