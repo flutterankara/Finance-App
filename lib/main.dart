@@ -3,6 +3,7 @@ import 'package:app/screens/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:app/screens/login.dart';
+import 'package:app/screens/reporst.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -10,7 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const HomeScreen());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
