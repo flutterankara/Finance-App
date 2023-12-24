@@ -96,7 +96,7 @@ Column test(String element) {
             amount: 45.00,
             type: " TL",
             date: DateTime(2023, 11, 11),
-            InOrOut: false),
+            InOrOut: true),
       ],
     );
   } else {
@@ -106,7 +106,7 @@ Column test(String element) {
             amount: 45.00,
             type: " TL",
             date: DateTime(2023, 11, 11),
-            InOrOut: true),
+            InOrOut: false),
       ],
     );
   }
