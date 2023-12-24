@@ -1,4 +1,5 @@
 import 'package:app/models/account_model.dart';
+import 'package:app/models/user_model.dart';
 import 'package:app/screens/accounts/controllers/accounts_page_controller.dart';
 import 'package:app/screens/accounts/widgets/add_account_dialog.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,12 @@ class AddAccountButton extends StatelessWidget {
 
         if (result != null && context.mounted) {
           context.read<AccountPageController>().addAccount(
-                model: AccountModel(
-                  title: result,
+                model: AccountModel(title: result),
+                userModel: UserModel(
+                  id: 1,
+                  name: 'Test',
+                  surname: ' surnameTest',
+                  age: 26,
                 ),
               );
         }
