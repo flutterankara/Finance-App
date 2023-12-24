@@ -23,7 +23,7 @@ class _Budget extends State<Budget> {
         appBar: AppBar(
           toolbarHeight: 200, // Set this height
           flexibleSpace: Container(
-            color: Colors.blue,
+            color: Colors.deepPurple,
             child: const Column(
               children: [
                 SizedBox(
