@@ -34,7 +34,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Budget",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -46,7 +47,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Left Budget",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -55,7 +57,8 @@ class _Budget extends State<Budget> {
                   children: [
                     Text(
                       "Para",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
