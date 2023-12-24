@@ -10,6 +10,23 @@ class AppController extends ChangeNotifier {
   UserModel? _user;
   UserModel? get user => _user;
 
+  Future<void> getUser() async {
+    if (FirebaseAuth.instance.currentUser != null) {
+      final db = FirebaseFirestore.instance;
+      final uid = FirebaseAuth.instance.currentUser!.uid;
+      final userDoc = await db.collection('Users').doc(uid).get();
+      _user = UserModel.fromMap(userDoc.data()!);
+      print('User fetched..');
+      print(user!.accounts);
+      notifyListeners();
+    }
+  }
+
+  void setUser({required UserModel userModel}) {
+    _user = userModel;
+    notifyListeners();
+  }
+
   Future<void> login({
     required String email,
     required String password,
@@ -29,8 +46,9 @@ class AppController extends ChangeNotifier {
       }
       final user = querySnapshot.docs.first.data();
       _user = UserModel(
-        name: user['username'],
+        name: user['name'],
         age: user['age'] ?? 18,
+        email: email,
       );
 
       _isLoggedIn = true;
@@ -77,6 +95,7 @@ class AppController extends ChangeNotifier {
     _user = UserModel(
       name: userData['username'],
       age: userData['age'] ?? 18,
+      email: email,
     );
     _isLoggedIn = true;
     notifyListeners();
