@@ -50,9 +50,11 @@ class AppController extends ChangeNotifier {
       password: password,
     );
 
-    final userInfo = <String, String>{
+    final userInfo = <String, dynamic>{
       "username": email,
       "email": password,
+      "debt":[],
+      "income":[]
     };
 
     await FirebaseFirestore.instance
