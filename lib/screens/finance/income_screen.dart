@@ -1,4 +1,4 @@
-import 'package:app/service/status_service.dart';
+import 'package:app/screens/finance/status_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -1,4 +1,4 @@
-import 'package:app/service/status.dart';
+import 'package:app/screens/finance/status.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StatusService {
