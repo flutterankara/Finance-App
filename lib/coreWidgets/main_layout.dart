@@ -1,5 +1,5 @@
 import 'package:app/screens/home.dart';
-import 'package:app/screens/profile.dart';
+import 'package:app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class MainLayout extends StatefulWidget {
