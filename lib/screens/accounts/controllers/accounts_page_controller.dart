@@ -11,6 +11,7 @@ class AccountPageController extends ChangeNotifier {
   }) {
     accounts.add(model);
     userModel.accounts.add(model);
+
     notifyListeners();
   }
 }
