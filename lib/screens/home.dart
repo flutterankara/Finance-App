@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app/coreWidgets/reportAndMain.dart';
+
+import 'reporst.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -35,6 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -259,8 +267,15 @@ Widget _getDrawerMenu() {
           onTap: () {},
         ),
         ListTile(
+          title: Text("Rapor"),
+          onTap: () {
+          },
+        ),
+        ListTile(
           title: Text('Çıkış'),
-          onTap: () {},
+          onTap: () async {
+            await FirebaseAuth.instance.signOut();
+          },
         ),
       ],
     ),
