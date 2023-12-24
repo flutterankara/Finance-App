@@ -1,5 +1,7 @@
+import 'package:app/core/app/controllers/app_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key, required this.changeForm});
@@ -33,14 +35,10 @@ class _LoginFormState extends State<LoginForm> {
       _isAuthenticating = true;
     });
     formKey.currentState!.save();
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _enteredEmail,
-        password: _enteredPassword,
-      );
-    } on FirebaseAuthException catch (error) {
-      print("Signin Fail");
-    }
+
+    await context
+        .read<AppController>()
+        .login(email: _enteredEmail, password: _enteredPassword);
 
     setState(() {
       _isAuthenticating = false;
