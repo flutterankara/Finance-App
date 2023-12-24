@@ -45,11 +45,7 @@ class AppController extends ChangeNotifier {
         throw FirebaseAuthException(code: '403');
       }
       final user = querySnapshot.docs.first.data();
-      _user = UserModel(
-        name: user['name'],
-        age: user['age'] ?? 18,
-        email: email,
-      );
+      _user = UserModel.fromMap(user);
 
       _isLoggedIn = true;
       notifyListeners();
@@ -71,8 +67,8 @@ class AppController extends ChangeNotifier {
     final userInfo = <String, dynamic>{
       "username": email,
       "email": password,
-      "debt":[],
-      "income":[]
+      "debt": [],
+      "income": []
     };
 
     await FirebaseFirestore.instance

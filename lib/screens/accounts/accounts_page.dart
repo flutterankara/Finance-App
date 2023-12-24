@@ -33,9 +33,7 @@ class AccountsPage extends StatelessWidget {
                     children: [
                       AccountDashboardCard(
                         title: controller.accounts[index].title,
-                        color: Color(
-                          Random().nextInt(2000000000),
-                        ),
+                        color: Colors.grey.shade100,
                       ),
                       const SizedBox(
                         height: 12,

@@ -280,12 +280,6 @@ Widget _getDrawerMenu(BuildContext context) {
           title: Text('İşlem Geçmişi'),
           onTap: () {},
         ),
-        ListTile(
-          title: Text('Çıkış'),
-          onTap: () async {
-            await FirebaseAuth.instance.signOut();
-          },
-        ),
       ],
     ),
   );

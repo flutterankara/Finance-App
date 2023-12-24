@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 /// Account page'indeki dashboard cardları
@@ -32,9 +34,60 @@ class AccountDashboardCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const Divider()
+          const Divider(),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _DashboardField(
+                  title: 'Gelir',
+                  value: Random().nextInt(9999),
+                  color: Colors.greenAccent,
+                ),
+                _DashboardField(
+                  title: 'Gider',
+                  value: Random().nextInt(9999),
+                  color: Colors.redAccent,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class _DashboardField extends StatelessWidget {
+  const _DashboardField({
+    super.key,
+    required this.title,
+    required this.value,
+    this.color = Colors.black,
+  });
+
+  final String title;
+  final int value;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: color,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          value.toString(),
+          style: const TextStyle(fontSize: 24),
+        ),
+      ],
     );
   }
 }
