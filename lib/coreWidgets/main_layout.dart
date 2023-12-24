@@ -1,7 +1,7 @@
 import 'package:app/core/app/controllers/app_controller.dart';
 import 'package:app/screens/accounts/accounts_page.dart';
 import 'package:app/screens/home.dart';
-import 'package:app/screens/profile.dart';
+import 'package:app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
