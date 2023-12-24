@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app/coreWidgets/reportAndMain.dart';
 
+import 'reporst.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -257,6 +259,11 @@ Widget _getDrawerMenu() {
         ListTile(
           title: Text('İşlem Geçmişi'),
           onTap: () {},
+        ),
+        ListTile(
+          title: Text("Rapor"),
+          onTap: () {
+          },
         ),
         ListTile(
           title: Text('Çıkış'),
