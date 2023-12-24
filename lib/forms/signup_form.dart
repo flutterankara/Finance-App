@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'package:app/core/app/controllers/app_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key, required this.changeForm});
@@ -38,21 +40,9 @@ class _SignupFormState extends State<SignupForm> {
 
     formKey.currentState!.save();
 
-    final UserCredential user =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _enteredEmail,
-      password: _enteredPassword,
-    );
-
-    final userInfo = <String, String>{
-      "username": _enteredUsername,
-      "email": _enteredEmail,
-    };
-
-    await FirebaseFirestore.instance
-        .collection("Users")
-        .doc(user.user!.uid)
-        .set(userInfo);
+    await context
+        .read<AppController>()
+        .register(email: _enteredEmail, password: _enteredPassword);
 
     setState(() {
       _isAuthenticating = false;

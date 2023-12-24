@@ -3,36 +3,35 @@ import 'dart:convert';
 import 'package:app/models/account_model.dart';
 
 class UserModel {
+  final String name;
+  final int age;
+  final List<int> incomeList;
+  final List<int> debtList;
+  final List<AccountModel> accounts;
   UserModel({
-    required this.id,
     required this.name,
-    required this.surname,
     required this.age,
+    this.incomeList = const [],
+    this.debtList = const [],
     this.accounts = const [],
   });
 
-  final int id;
-  final String name;
-  final String surname;
-  final int age;
-  final List<AccountModel> accounts;
-
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'name': name,
-      'surname': surname,
       'age': age,
+      'incomeList': incomeList,
+      'debtList': debtList,
       'accounts': accounts.map((x) => x.toMap()).toList(),
     };
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
-      surname: map['surname'] ?? '',
       age: map['age']?.toInt() ?? 0,
+      incomeList: List<int>.from(map['incomeList']),
+      debtList: List<int>.from(map['debtList']),
       accounts: List<AccountModel>.from(
           map['accounts']?.map((x) => AccountModel.fromMap(x))),
     );

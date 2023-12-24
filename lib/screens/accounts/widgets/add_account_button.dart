@@ -24,9 +24,7 @@ class AddAccountButton extends StatelessWidget {
           context.read<AccountPageController>().addAccount(
                 model: AccountModel(title: result),
                 userModel: UserModel(
-                  id: 1,
                   name: 'Test',
-                  surname: ' surnameTest',
                   age: 26,
                 ),
               );
