@@ -10,10 +10,10 @@ class Budget extends StatefulWidget {
 }
 
 List _elements = [
-  {'name': 'gelir', 'group': 'Gelir'},
-  {'name': 'gelir', 'group': 'Gelir'},
-  {'name': 'gider', 'group': 'Gider'},
-  {'name': 'gider', 'group': 'Gider'},
+  {'name': 'income', 'group': 'Income'},
+  {'name': 'income', 'group': 'Income'},
+  {'name': 'expense', 'group': 'Expense'},
+  {'name': 'expense', 'group': 'Expense'},
 ];
 
 class _Budget extends State<Budget> {
@@ -89,7 +89,7 @@ class _Budget extends State<Budget> {
 }
 
 Column test(String element) {
-  if (element == "gelir") {
+  if (element == "income") {
     return Column(
       children: [
         ReportAndMain(
