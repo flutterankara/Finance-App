@@ -1,3 +1,4 @@
+import 'package:app/screens/buget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app/coreWidgets/reportAndMain.dart';
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      drawer: _getDrawerMenu(),
+      drawer: _getDrawerMenu(context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -224,7 +225,7 @@ Widget _buildTransactionRow({
   );
 }
 
-Widget _getDrawerMenu() {
+Widget _getDrawerMenu(BuildContext context) {
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
@@ -246,11 +247,37 @@ Widget _getDrawerMenu() {
           onTap: () {},
         ),
         ListTile(
-          title: Text('İşlem Geçmişi'),
+          title: Text('Profil'),
           onTap: () {},
         ),
         ListTile(
-          title: Text("Rapor"),
+          title: Text('Yatırımlar'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Borçlar'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Tasarruflar'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Masraflar'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text('Bütçe'),
+          onTap: () {
+            Navigator.pop(context); // Drawer'ı kapat
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Budget()),
+            );
+          },
+        ),
+        ListTile(
+          title: Text('İşlem Geçmişi'),
           onTap: () {},
         ),
         ListTile(
