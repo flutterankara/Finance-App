@@ -18,7 +18,7 @@ class _ReportScreenState extends State<ReportScreen> {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); 
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     id = firebaseAuth.currentUser!.uid;
     firestorage = FirebaseFirestore.instance;

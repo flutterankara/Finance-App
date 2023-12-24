@@ -54,7 +54,7 @@ class AppController extends ChangeNotifier {
       "username": email,
       "email": password,
       "debt":[],
-      "income":[]
+      "income":[],
     };
 
     await FirebaseFirestore.instance
